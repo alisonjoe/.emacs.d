@@ -66,15 +66,6 @@
 
 (provide 'init)
 
-
-
-;;(eval-after-load 'flycheck
-  ;;'(progn
-     ;;(require 'flycheck-google-cpplint)
-     ;;;; Add Google C++ Style checker.
-     ;;;; In default, syntax checked by Clang and Cppcheck.
-     ;;(flycheck-add-next-checker 'c/c++-cppcheck
-                                ;;'(warning . c/c++-googlelint))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
