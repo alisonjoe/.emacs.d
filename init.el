@@ -52,7 +52,6 @@
 (require 'init-xmlrpc)
 (require 'init-confluence)
 (require 'init-egg)
-;;(require 'init-git)
 (require 'init-projectile)
 (require 'init-recentf-ext)
 (require 'init-org)

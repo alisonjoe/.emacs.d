@@ -38,10 +38,6 @@
 (global-linum-mode t)
 ;; 高亮行
 (global-hl-line-mode t)
-;; 绑定M-x到smex
-(global-set-key (kbd "M-x") 'smex)
-;; 自动补全
-(global-company-mode t)
 
 ;;设置M-/作为标志位，默认C-@来setmark,C-@不太好用
 (global-set-key (kbd "M-/") 'set-mark-command)

@@ -3,6 +3,7 @@
 ;; 增加软件包仓库
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
+
 (when (>= emacs-major-version 24)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
