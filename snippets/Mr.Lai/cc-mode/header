@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+/*******************************************************************************
+* File:`(file-name-nondirectory (buffer-file-name))`
+* Copyright:
+* Author:Mr.Lai.who
+* Email:`enterprise-mail`
+* Description:
+* 
+* Version:1.0
+* Date:`(current-time-string)`
+*******************************************************************************/
