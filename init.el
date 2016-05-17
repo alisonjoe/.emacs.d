@@ -58,6 +58,10 @@
 (require 'init-org)
 (require 'init-imenu)
 (require 'init-tramp)
+(require 'init-session)
+(require 'init-mew)
+(require 'init-ctable)
+(require 'init-ctags)
 (require 'init-find-file-in-project)
 (require 'init-auto-complete-c-headers)
 ;; ----------------------------------------------------------------------
