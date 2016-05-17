@@ -51,7 +51,6 @@
 ;;(require 'init-tabbar)
 (require 'init-xmlrpc)
 (require 'init-confluence)
-(require 'init-egg)
 (require 'init-projectile)
 (require 'init-recentf-ext)
 (require 'init-org)
@@ -61,6 +60,7 @@
 (require 'init-mew)
 (require 'init-ctable)
 (require 'init-ctags)
+(require 'init-magit)
 (require 'init-find-file-in-project)
 (require 'init-auto-complete-c-headers)
 ;; ----------------------------------------------------------------------
