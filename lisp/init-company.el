@@ -1,5 +1,7 @@
 (require-package 'company)
 
+(add-hook 'c++-mode-hook 'global-company-mode)
+
 (defun company-my-backend (command &optional arg &rest ignored)
   (pcase command
     (`prefix (company-grab-symbol))
