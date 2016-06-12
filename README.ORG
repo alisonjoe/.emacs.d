@@ -1,0 +1,10 @@
+#+TITLE: emacs config
+#+AUTHOR: Mr.Lai.who
+
+* 写在前言
+
+* 关于VIM
+
+* 关于EMACS
+
+* 
