@@ -60,7 +60,8 @@
 (require 'init-mew)
 (require 'init-ctable)
 (require 'init-ctags)
-(require 'init-magit)
+;;(require 'init-w3m)
+;;(require 'init-magit)
 (require 'init-find-file-in-project)
 (require 'init-auto-complete-c-headers)
 ;; ----------------------------------------------------------------------
