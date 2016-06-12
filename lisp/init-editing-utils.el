@@ -219,6 +219,19 @@
 (global-set-key "\C-xp" 'other-window-backward)
 
 
+;; For my language code setting (UTF-8)
+(setq current-language-environment "UTF-8")
+(setq default-input-method "chinese-py")
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; (setq default-buffer-file-coding-system 'utf-8-unix)
+
+
+
 ;; undo-tree
 (require 'init-undo-tree)
 (diminish 'undo-tree-mode)
