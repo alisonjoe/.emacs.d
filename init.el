@@ -60,6 +60,7 @@
 (require 'init-mew)
 (require 'init-ctable)
 (require 'init-ctags)
+(require 'init-ycmd)
 ;;(require 'init-w3m)
 ;;(require 'init-magit)
 (require 'init-find-file-in-project)
