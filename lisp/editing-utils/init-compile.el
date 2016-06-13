@@ -73,7 +73,7 @@
 (save-excursion
 (indent-region (point-min) (point-max) nil)))
 
-;;绑定到F7键
-(global-set-key [f7] 'indent-whole)
+;;绑定到F9键
+(global-set-key [f9] 'indent-buffer)
 
 (provide 'init-compile)
