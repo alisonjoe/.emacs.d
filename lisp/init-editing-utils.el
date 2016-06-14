@@ -54,6 +54,12 @@
 ;;禁止在鼠标点击的地方插入剪贴板内容
 (setq mouse-yank-at-point t)
 
+;;设置光标不闪  
+(blink-cursor-mode 1)  
+;;设置光标为线条状  
+(setq-default cursor-type 'bar)
+
+
 ;;所有模式中都自动填充
 (setq-default auto-fill-function 'do-auto-fill)
 ;;----------------- 显示日期时间--------------------
@@ -63,6 +69,14 @@
 (setq display-time-use-mail-icon t)
 (setq display-time-interval 10)
 (display-time)
+
+;;时间戳设置(time-stamp)，设定文档上次保存的信息  
+;;只要里在你得文档里有Time-stamp:的设置，就会自动保存时间戳  
+;;启用time-stamp  
+(setq time-stamp-active t)  
+;;去掉time-stamp的警告？  
+(setq time-stamp-warn-inactive t)  
+
 ;;Time-stamp 设定文档上次保存的信息-------------------------
 ;;需在文档的前8行中加入关键字如: Time-stamp: <> 或 Time-stamp: ""，便会自动保存时间戳
 ;;使用中文需要写成: Time-stamp: <最后更新时间:> 或 Time-stamp: "最后更新时间:"
@@ -75,6 +89,31 @@
 ;; 用来显示当前光标在哪个函数
 (require 'which-func)
 (which-func-mode 1)
+
+;; go-to-char 非常感谢 Oliver Scholz 提供这个函数给 我。  
+;;这个函数是一个 vi 的 "f" 命令的替代品。vi的用户知道，vi有 一个特别好的命令 "f"。当你按 "fx", x 是任意一个字符时  
+;;光标 就会移动到下一个 "x" 处。这之后只要按 ";"(分号)，光标就到再 下一个 "x"。  
+;;举个例子说明这个命令的用途。比如我们有这样一行字，光标在 行首。  
+;;(setq unread-command-events (list last-input-event)))  
+;;                                               ^^^^^  
+;;我们希望迅速的到达最后那个 event 处，于是我在 vi 里按 "fe"。结果光标到了 "setq" 的那个 e 上面，这时候我接着按 ";",   
+;;不一会儿就到了我们想要的地方。很方便吧？可能起初不觉得，后来 你发现这真的非常好！  
+  
+;;我一直觉得 Emacs 没有这样一个方便的命令，但是 Oliver 给了 我一个完美的答案：  
+;;有了这段代码之后，当你按 C-c a x (x 是任意一个字符) 时，光 标就会到下一个 x 处。再次按 x，光标就到下一个 x。比如 C-c a w w w w ..., C-c a b b b b b b ...  
+;;我觉得这个方式比 vi 的 "f" 要快。  
+(defun wy-go-to-char (n char)  
+  "Move forward to Nth occurence of CHAR.  
+Typing `wy-go-to-char-key' again will move forwad to the next Nth  
+occurence of CHAR."  
+  (interactive "p\ncGo to char: ")  
+  (search-forward (string char) nil nil n)  
+  (while (char-equal (read-char)  
+             char)  
+    (search-forward (string char) nil nil n))  
+  (setq unread-command-events (list last-input-event)))  
+(define-key global-map (kbd "C-c f") 'wy-go-to-char)  
+
 
 ;;web方式显示行号
 ;;(require 'wb-line-number)
@@ -260,6 +299,17 @@
   (setq-default ispell-program-name "aspell")
   (setq ispell-really-aspell t)
   (require 'init-flyspell))
+
+;;将文件模式和文件后缀关联起来。append表示追加  
+(setq auto-mode-alist  
+    ( append
+      '(("\\.py\\'" . python-mode)
+        ("\\.s?html?\\'" . html-helper-mode)
+        (" \\.asp\\'" . html-helper-mode)
+        ("\\.phtml\\'" . html-helper-mode)
+        ("\\.css\\'" . css-mode)
+        )
+        auto-mode-alist))
 
 
 (provide 'init-editing-utils)
