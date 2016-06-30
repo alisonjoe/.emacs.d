@@ -2,4 +2,4 @@
 
 (require-package 'auto-complete-c-headers)
 
-(provide 'init-auto-complete-c-headers)
+(provide 'init-auto-complete-c-headers)

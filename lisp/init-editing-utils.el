@@ -43,7 +43,7 @@
 (global-hl-line-mode t)
 
 ;; 标题栏，显示"buffer的名字@Emacs"
-;; (setq frame-title-format "%b@rain_Emacs")
+;; (setq frame-title-format "%b@alisonjoe_Emacs")
 
 ;;设置M-/作为标志位，默认C-@来setmark,C-@不太好用
 (global-set-key (kbd "M-/") 'set-mark-command)
