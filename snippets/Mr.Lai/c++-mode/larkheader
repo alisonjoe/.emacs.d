@@ -1,0 +1,55 @@
+# -*- mode: snippet -*-
+# name: larkhead
+# key: lark.h
+# --
+/* Time_stamp <最后更新时间: > */
+/*******************************************************************************
+* File:`(file-name-nondirectory (buffer-file-name))`
+* Copyright:
+* Author:Mr.Lai.who
+* Email:`enterprise-mail`
+* Description:
+*
+* Version:1.0
+* Date:`(current-time-string)`
+*******************************************************************************/
+
+#ifndef ${1:__`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H__}
+#define $1
+
+class ${2:`(file-name-nondirectory (file-name-sans-extension(buffer-file-name)))`} : public IPbProtocolTask {
+ public:
+  $2(){}
+  virtual ~$2(){}
+
+  virtual int32_t Init();
+  virtual int32_t Execute(int32_t inputlen, char* inputbuf, char** outbuf, int& outlen);
+
+ protected:
+  /*******************************************************************************
+   * 功能描述:反序列化请求到请求结构
+   * @param inputbuf
+   * @param
+   * @return
+   *******************************************************************************/
+  int32_t GetRequest(${3:req}& oPbReq, ${5:resp}& oreq);
+
+  /*******************************************************************************
+   * 功能描述:
+   * @param
+   * @param
+   * @return
+   *******************************************************************************/
+  int32_t BuildResp(char** outbuf, int32_t& outlen);
+
+ protected:
+  struct timeval timebegin;
+  struct timeval timeend;
+
+ private:
+
+};
+
+
+
+#endif /* $1 */
