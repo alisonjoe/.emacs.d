@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: for
+# key: forv
+# --
+for (${1:std::}${2:vector<int>}::iterator ${3:it}=${4:vecTemp}.begin(); $3!=$4.end(); ++$3) {
+    $0
+}
