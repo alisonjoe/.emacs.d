@@ -31,11 +31,11 @@
 (require 'init-hungry-delete)  ;; 删除多余空格
 (require 'init-swiper)
 (require 'init-counsel)
-;;(require 'init-company)
+(require 'init-company)
 
 (require 'init-ac-source)
-;;(require 'init-auto-complete)
-;;(require 'init-auto-complete-clang)
+(require 'init-auto-complete)
+(require 'init-auto-complete-clang)
 (require 'init-dired)
 (require 'init-exec-path)
 (require 'init-markdown)
@@ -44,8 +44,9 @@
 (require 'init-window-numbering)
 (require 'init-yasnippet)
 (require 'init-fonts)
-;;(require 'init-flycheck-google-cpplint)
+(require 'init-flycheck)
 (require 'init-google-c-style)
+(require 'init-flycheck-google-cpplint)
 (require 'init-smex)
 (require 'init-helm)   ;; 不支持windows，用ido代替
 ;;(require 'init-ido)
@@ -67,6 +68,9 @@
 ;; ----------------------------------------------------------------------
 
 
+;(executable-find "cpplint.py") ; 这个命令和下面这条一样,告诉emacs执行文件位置
+(custom-set-variables
+    '(flycheck-c/c++-googlelint-executable "/usr/bin/cpplint"))
 
 (provide 'init)
 
@@ -78,10 +82,11 @@
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
+    ("db08eb1e43f351490cfffd720db90600dd92d5cdf311f74350532ba71ae65c48" "a1289424bbc0e9f9877aa2c9a03c7dfd2835ea51d8781a0bf9e2415101f70a7e" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
  '(package-selected-packages
    (quote
-    (ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+))))
+    (ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))
+ '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
