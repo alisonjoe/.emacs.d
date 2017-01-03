@@ -66,6 +66,9 @@
     (compile
      (compilation-read-command compile-command))))
 
+;; 删除行末空格
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; 格式化代码
 (defun indent-buffer ()
 "Indent the whole buffer."

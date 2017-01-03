@@ -60,7 +60,8 @@
 (require 'init-mew)
 (require 'init-ctable)
 (require 'init-ctags)
-(require 'init-ycmd)
+(require 'init-fill-column)
+;; (require 'init-ycmd)
 ;;(require 'init-w3m)
 ;;(require 'init-magit)
 (require 'init-find-file-in-project)
@@ -79,7 +80,7 @@
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
+    ("55d31108a7dc4a268a1432cd60a7558824223684afecefa6fae327212c40f8d3" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82e02b87e45ef7bee5d900ff4ebc12956ecdc9d797d6905f62758a7f2198305c" "db08eb1e43f351490cfffd720db90600dd92d5cdf311f74350532ba71ae65c48" "a1289424bbc0e9f9877aa2c9a03c7dfd2835ea51d8781a0bf9e2415101f70a7e" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
  '(org-agenda-files
    (quote
     ("~/org/work.org" "~/org/projects.org" "~/org/inbox.org" "~/org/finished.org" "~/org/note.org" "~/org/trash.org")))
@@ -93,3 +94,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'scroll-left 'disabled nil)
