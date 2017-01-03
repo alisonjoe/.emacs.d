@@ -5,7 +5,7 @@
 (setq user-full-name "Mr.Lai")
 
 ;; set user email
-(setq enterprise-mail "hongshu.lai@quncaotech.com")
+(setq enterprise-mail "xxx@xxx.com")
 (setq personal-mail "Mr.Lai.who@gmail.com")
 
 
