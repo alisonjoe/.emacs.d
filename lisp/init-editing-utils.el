@@ -300,6 +300,12 @@ occurence of CHAR."
   (setq ispell-really-aspell t)
   (require 'init-flyspell))
 
+;; ,号后自动加空格
+(global-set-key (kbd ",")
+                #'(lambda ()
+                    (interactive)
+                    (insert ", ")))
+
 ;;将文件模式和文件后缀关联起来。append表示追加  
 (setq auto-mode-alist  
     ( append
