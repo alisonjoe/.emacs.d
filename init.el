@@ -66,11 +66,14 @@
 ;;(require 'init-magit)
 (require 'init-find-file-in-project)
 (require 'init-auto-complete-c-headers)
+(require 'init-cpplint)
 ;; ----------------------------------------------------------------------
 
 
 
 (provide 'init)
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

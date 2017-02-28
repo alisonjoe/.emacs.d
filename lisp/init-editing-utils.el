@@ -141,7 +141,7 @@ occurence of CHAR."
 (setq slime-net-coding-system 'utf-8-unix)
 
 ;;设置默认的文档宽度
-(setq default-fill-column 100)
+(setq-default fill-column 100)
 
 ;; 不用 TAB 字符来indent, 这会引起很多奇怪的错误。
 ;; 编辑 Makefile 的时候也不用担心，因为 makefile-mode
@@ -158,7 +158,7 @@ occurence of CHAR."
 ;;(desktop-save-mode 1)
 
 ;;set the default file path
-(setq default-directory "~/WorkSpace")
+(setq default-directory "~/work")
 (setq load-path
       (cons (expand-file-name "~/.emacs.d/lisp") load-path))
 ;; auto-revert

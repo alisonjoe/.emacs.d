@@ -1,6 +1,8 @@
 (require-package 'color-theme)
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
+(require-package 'autumn-light-theme)
+
 
 ;; custom theme packages
 ;; can be removed
@@ -24,7 +26,6 @@
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (add-hook 'after-init-hook 'reapply-themes)
-
 
 
 ;; Toggle between light and dark

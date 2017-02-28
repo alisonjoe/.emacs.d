@@ -22,14 +22,10 @@
               (mapcar (lambda (item) (concat "-I" item))
                       (split-string
                         "
-                        /usr/include/c++/4.8
-                        /usr/include/x86_64-linux-gnu/c++/4.8
-                        /usr/include/c++/4.8/backward
-                        /usr/lib/gcc/x86_64-linux-gnu/4.8/include
-                        /usr/local/include
-                        /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed
-                        /usr/include/x86_64-linux-gnu
+                        /usr/include/c++/4.4.4
                         /usr/include
+                        /usr/lib/gcc/x86_64-redhat-linux/4.4.4/include
+                        /usr/local/include
                         "
                         ))))
 ;; 可以设置对于不同的文件绑定不同的模式，可以用以下语句实现：
