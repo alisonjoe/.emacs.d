@@ -60,7 +60,7 @@
 (require 'init-session)
 (require 'init-mew)
 (require 'init-ctable)
-(require 'init-ctags)
+;; (require 'init-ctags)
 (require 'init-fill-column)
 (require 'init-ycmd)
 ;; (require 'init-w3m)
