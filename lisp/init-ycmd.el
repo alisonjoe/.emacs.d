@@ -2,11 +2,11 @@
 
 ;; ycmd
 (add-hook 'c++-mode-hook 'ycmd-mode)
-(set-variable 'ycmd-server-command '("python" "/home/alisonjoe/Tools/ycmd/ycmd/")) ;; ycmd安装路径
+(set-variable 'ycmd-server-command '("python" "/home/laihongshu/ycmd/ycmd/")) ;; ycmd安装路径
 (set-variable 'ycmd-global-config "~/.emacs.d/ycm/.ycm_extra_conf.py")
 (set-variable 'ycmd-extra-conf-whitelist
             '("~/.emacs.d/ycm/*")
-            '("~/WorkSpace/bigfan_broka/*"))
+            '("~/work/*"))
 
 (defun ycmd-setup-completion-at-point-function ()
   "Setup `completion-at-point-functions' for `ycmd-mode'."

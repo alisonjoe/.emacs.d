@@ -2,11 +2,11 @@
 ;; Thu Apr 21 13:12:39 CST 2016
 
 ;; set user name
-(setq user-full-name "xxx")
+(setq user-full-name "Mr.Lai")
 
 ;; set user email
-(setq enterprise-mail "xxx@xx.com")
-(setq personal-mail "xxx@xx.com")
+(setq enterprise-mail "laihongshu@jd.com")
+(setq personal-mail "Mr.Lai.who@gmail.com")
 
 
 (provide 'init-userinfo)
