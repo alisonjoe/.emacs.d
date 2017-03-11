@@ -64,7 +64,7 @@
 (require 'init-fill-column)
 (require 'init-ycmd)
 ;; (require 'init-w3m)
-;; (require 'init-magit)
+(require 'init-magit)
 (require 'init-find-file-in-project)
 (require 'init-auto-complete-c-headers)
 (require 'init-cpplint)
