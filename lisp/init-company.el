@@ -1,4 +1,5 @@
 (require-package 'company)
+(require-package 'company-ycmd)
 
 (add-hook 'c++-mode-hook 'global-company-mode)
 
