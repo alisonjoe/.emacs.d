@@ -158,7 +158,7 @@ occurence of CHAR."
 ;;(desktop-save-mode 1)
 
 ;;set the default file path
-(setq default-directory "~/work")
+(setq default-directory "~/WorkSpace")
 (setq load-path
       (cons (expand-file-name "~/.emacs.d/lisp") load-path))
 ;; auto-revert

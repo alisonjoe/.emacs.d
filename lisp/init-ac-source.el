@@ -42,6 +42,8 @@
       (cons '("\\.cc$" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("\\.cpp$" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("\\.go$" . go-mode) auto-mode-alist))
 
 
 (defun my-ac-cc-mode-setup ()
