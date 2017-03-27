@@ -69,6 +69,8 @@
 (require 'init-auto-complete-c-headers)
 (require 'init-cpplint)
 (require 'init-flymake-cppcheck)
+(require 'init-go-autocomplete)
+(require 'init-erlang)
 ;; ----------------------------------------------------------------------
 
 
