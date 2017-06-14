@@ -11,5 +11,4 @@
            (session-save-session t)
            ))
 
-
 (provide 'init-session)
