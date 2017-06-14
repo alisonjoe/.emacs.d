@@ -12,7 +12,7 @@
       org-archive-mark-done nil
       org-catch-invisible-edits 'show
       org-export-coding-system 'utf-8
-      org-fast-tag-selection-single-key 'expert
+      org-fast-tag-selecation-single-key 'expert
       org-html-validation-link nil
       org-export-kill-product-buffer-when-displayed t
       org-tags-column 80)
@@ -30,7 +30,6 @@
 
 
 ;;; To-do settings
-
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
@@ -49,9 +48,7 @@
                              "~/org/trash.org"
                                                 ))
 
-
-;;; Agenda views
-
+;; Agenda views
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 
 
