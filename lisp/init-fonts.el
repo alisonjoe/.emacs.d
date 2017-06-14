@@ -20,37 +20,37 @@
 
 ;; 表格中英文对齐
 ;; 英文设置
-;; (custom-set-faces
-;;   custom-set-faces was added by Custom.
-;;   If you edit it by hand, you could mess it up, so be careful.
-;;   Your init file should contain only one such instance.
-;;   If there is more than one, they won't work right.
-;;  '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000"
-;;  '(default ((t (:inherit nil :stipple nil
-;;                          :inverse-video nil :box nil :strike-through nil :overline nil
-;;                          :underline nil :slant normal :weight normal :height 120
-;;                          :width normal :foundry "unknown" :family "Liberation Mono")))))
+;(custom-set-faces
+  ;;; custom-set-faces was added by Custom.
+  ;;; If you edit it by hand, you could mess it up, so be careful.
+  ;;; Your init file should contain only one such instance.
+  ;;; If there is more than one, they won't work right.
+ ;;'(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#000000"
+ ;'(default ((t (:inherit nil :stipple nil 
+                         ;:inverse-video nil :box nil :strike-through nil :overline nil
+                         ;:underline nil :slant normal :weight normal :height 120
+                         ;:width normal :foundry "unknown" :family "Liberation Mono")))))
 ;; 中文设置
-;; (if (and (fboundp 'daemonp) (daemonp))
-;;     (add-hook 'after-make-frame-functions
-;;               (lambda (frame)
-;;                 (with-selected-frame frame
-;;                   (set-fontset-font "fontset-default"
-;;                                     'chinese-gbk "DejaVu Sans-15"))))
-;;   (set-fontset-font "fontset-default" 'chinese-gbk "DejaVu Sans-15"))
-;;                                     'chinese-gbk "WenQuanYi Micro Hei Mono 15"))))
-;;   (set-fontset-font "fontset-default" 'chinese-gbk "WenQuanYi Micro Hei Mono 15"))
+;(if (and (fboundp 'daemonp) (daemonp))
+    ;(add-hook 'after-make-frame-functions
+              ;(lambda (frame)
+                ;(with-selected-frame frame
+                  ;(set-fontset-font "fontset-default"
+                                    ;'chinese-gbk "DejaVu Sans-15"))))
+  ;(set-fontset-font "fontset-default" 'chinese-gbk "DejaVu Sans-15"))
+                                    ;'chinese-gbk "WenQuanYi Micro Hei Mono 15"))))
+  ;(set-fontset-font "fontset-default" 'chinese-gbk "WenQuanYi Micro Hei Mono 15"))
 
 ;; 让column view能够在daemon模式下正常显示
-;; (defun wl-org-column-view-uses-fixed-width-face ()
-;;   copy from org-faces.el
-;;   (when (fboundp 'set-face-attribute)
-;;     Make sure that a fixed-width face is used when we have a column table.
-;;     (set-face-attribute 'org-column nil
-;;                         :height (face-attribute 'default :height)
-;;                         :family (face-attribute 'default :family))))
-;; (when (and (fboundp 'daemonp) (daemonp))
-;;  (add-hook 'org-mode-hook 'wl-org-column-view-uses-fixed-width-face))
+;(defun wl-org-column-view-uses-fixed-width-face ()
+  ;;; copy from org-faces.el
+  ;(when (fboundp 'set-face-attribute)
+    ;;; Make sure that a fixed-width face is used when we have a column table.
+    ;(set-face-attribute 'org-column nil
+                        ;:height (face-attribute 'default :height)
+                        ;:family (face-attribute 'default :family))))
+;(when (and (fboundp 'daemonp) (daemonp))
+  ;(add-hook 'org-mode-hook 'wl-org-column-view-uses-fixed-width-face))
 
 
 (require-package 'default-text-scale)

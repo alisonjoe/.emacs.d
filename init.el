@@ -18,71 +18,71 @@
  'load-path
  (expand-file-name "lisp" user-emacs-directory))
 
-;; 判断系统进行不同设置
-;; (when (eq system-type 'windows-nt)
-;;   (setq-default comint-process-echoes 'on))
-
 ;; 下面的每一个需要被require的feature都对应一个lisp/目录下的同名elisp文件，例如
 ;; init-elpa.el、init-utils.el
 ;; ----------------------------------------------------------------------
 ;; 为加载初始化文件提供的一些自定义函数和宏
-(require 'init-utils)  ;; el 加载顺序
+(require 'init-utils)
 ;; 加载elpa，主要定义了require-package函数
-(require 'init-elpa)  ;; 软件仓库
-(require 'init-session)  ;; 配合desktop使用，保存关闭前状态
-(require 'init-themes)  ;; 配色
-(require 'init-editing-utils)  ;; 个人习惯配置
+(require 'init-elpa)
+;; 一些顺手的小工具
+(require 'init-editing-utils)
+
 (require 'init-hungry-delete)  ;; 删除多余空格
-(require 'init-swiper)  ;; 正则表达式查找
-(require 'init-helm)   ;; 命令补全
-(require 'init-dired)  ;; dired模式
-(require 'init-org)  ;; org-mode
-(require 'init-window-numbering)  ;; 窗口跳转
-(require 'init-company)  ;; 自动补全，待整理
-(require 'init-sql)  ;; sql模式
-(require 'init-projectile)  ;; 项目管理
-(require 'init-find-file-in-project)
-(require 'init-fonts)  ;; 设置字体
-(require 'init-google-c-style)
-
-
-;; (require 'init-exec-path)
+(require 'init-swiper)
+(require 'init-counsel)
+(require 'init-company)
 
 (require 'init-ac-source)
-;; (require 'init-markdown)
-
-;; (require 'init-yasnippet)
-;; (require 'init-flycheck)
-;; (require 'init-flycheck-google-cpplint)
-;; (require 'init-xmlrpc)
-;; (require 'init-confluence)
-;; (require 'init-recentf-ext)
-;; (require 'init-imenu)
-;; (require 'init-tramp)
-;; (require 'init-mew)
-;; (require 'init-ctable)
-;; ;; (require 'init-ctags)
-;; (require 'init-fill-column)
-;; ;; (require 'init-ycmd)  ;; 需要安装ycmd
-;; ;; (require 'init-w3m)
-;; (require 'init-magit)
-;; (require 'init-auto-complete-c-headers)
-;; (require 'init-cpplint)
-;; (require 'init-flymake-cppcheck)
-;; (require 'init-go-autocomplete)
-;; (require 'init-erlang)
+(require 'init-auto-complete)
+(require 'init-dired)
+(require 'init-exec-path)
+(require 'init-markdown)
+(require 'init-sql)
+(require 'init-themes)
+(require 'init-window-numbering)
+(require 'init-yasnippet)
+(require 'init-fonts)
+(require 'init-flycheck)
+(require 'init-flycheck-google-cpplint)
+(require 'init-google-c-style)
+(require 'init-smex)
+(require 'init-helm)   ;; 不支持windows，用ido代替
+;; (require 'init-ido)
+;; (require 'init-tabbar)
+(require 'init-xmlrpc)
+(require 'init-confluence)
+(require 'init-projectile)
+(require 'init-recentf-ext)
+(require 'init-org)
+(require 'init-imenu)
+(require 'init-tramp)
+(require 'init-session)
+(require 'init-mew)
+(require 'init-ctable)
+;; (require 'init-ctags)
+(require 'init-fill-column)
+;; (require 'init-ycmd)  ;; 需要安装ycmd
+;; (require 'init-w3m)
+(require 'init-magit)
+(require 'init-find-file-in-project)
+(require 'init-auto-complete-c-headers)
+(require 'init-cpplint)
+(require 'init-flymake-cppcheck)
+(require 'init-go-autocomplete)
+(require 'init-erlang)
 ;; ----------------------------------------------------------------------
 
 
 
-;; (provide 'init)
-;;
-;; '(org-agenda-files
-  ;; (quote
-   ;; ("~/org/work.org" "~/org/projects.org" "~/org/inbox.org" "~/org/finished.org" "~/org/note.org" "~/org/trash.org")))
-;;
-;;
-;;
+(provide 'init)
+
+'(org-agenda-files
+  (quote
+   ("~/org/work.org" "~/org/projects.org" "~/org/inbox.org" "~/org/finished.org" "~/org/note.org" "~/org/trash.org")))
+
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,7 +99,7 @@
  '(flycheck-googlelint-verbose "3")
  '(package-selected-packages
    (quote
-    (find-file-in-project projectile hungry-delete multiple-cursors autumn-light-theme magit ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))
+    (magit ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -108,4 +108,3 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'scroll-left 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
