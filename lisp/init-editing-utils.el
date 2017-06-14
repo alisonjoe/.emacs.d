@@ -1,4 +1,4 @@
-;; Time-stamp: <最后更新时间: 2017-06-14 15:54:54 laihongshu>
+;; Time-stamp: <最后更新时间: 2016-05-17 03:09:20 wxy>
 
 (add-to-list 'load-path (expand-file-name "lisp/editing-utils" user-emacs-directory))
 ;; enhanced help mechanism
@@ -33,9 +33,9 @@
  tooltip-delay 1.5
  truncate-lines nil
  truncate-partial-width-windows nil
- visible-bell t
- scroll-bar-mode 0
- tool-bar-mode nil)
+ visible-bell t)
+;;(set-scroll-bar-mode nil)
+(tool-bar-mode 0)
 
 ;; 开启行号
 (global-linum-mode t)
@@ -43,25 +43,26 @@
 (global-hl-line-mode t)
 
 ;; 标题栏，显示"buffer的名字@Emacs"
-(setq frame-title-format "%b@Mr.Lai.who")
+;; (setq frame-title-format "%b@alisonjoe_Emacs")
 
-;; 设置M-/作为标志位，默认C-@来setmark,C-@不太好用
+;;设置M-/作为标志位，默认C-@来setmark,C-@不太好用
 (global-set-key (kbd "M-/") 'set-mark-command)
 
-;; 改变Emacs要你回答yes的行为。按y或空格键表示yes，n表示no。
+;;改变Emacs要你回答yes的行为。按y或空格键表示yes，n表示no。
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; 禁止在鼠标点击的地方插入剪贴板内容
+;;禁止在鼠标点击的地方插入剪贴板内容
 (setq mouse-yank-at-point t)
 
-;; 设置光标不闪
-(blink-cursor-mode t)
-;;设置光标为线条状
+;;设置光标不闪  
+(blink-cursor-mode 1)  
+;;设置光标为线条状  
 (setq-default cursor-type 'bar)
 
-;; 所有模式中都自动填充
+
+;;所有模式中都自动填充
 (setq-default auto-fill-function 'do-auto-fill)
-;; ----------------- 显示日期时间--------------------
+;;----------------- 显示日期时间--------------------
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
@@ -69,49 +70,54 @@
 (setq display-time-interval 10)
 (display-time)
 
-;; 时间戳设置(time-stamp)，设定文档上次保存的信息
-;; 只要里在你得文档里有Time-stamp:的设置，就会自动保存时间戳
-;; 启用time-stamp
-(setq time-stamp-active t)
-;; 去掉time-stamp的警告？
-(setq time-stamp-warn-inactive t)
+;;时间戳设置(time-stamp)，设定文档上次保存的信息  
+;;只要里在你得文档里有Time-stamp:的设置，就会自动保存时间戳  
+;;启用time-stamp  
+(setq time-stamp-active t)  
+;;去掉time-stamp的警告？  
+(setq time-stamp-warn-inactive t)  
 
-;; Time-stamp 设定文档上次保存的信息-------------------------
-;; 需在文档的前8行中加入关键字如: Time-stamp: <> 或 Time-stamp: ""，便会自动保存时间戳
-;; 使用中文需要写成: Time-stamp: <最后更新时间:> 或 Time-stamp: "最后更新时间:"
+;;Time-stamp 设定文档上次保存的信息-------------------------
+;;需在文档的前8行中加入关键字如: Time-stamp: <> 或 Time-stamp: ""，便会自动保存时间戳
+;;使用中文需要写成: Time-stamp: <最后更新时间:> 或 Time-stamp: "最后更新时间:"
 (add-hook 'write-file-hooks 'time-stamp)
-;; (setq time-stamp-format "%:u %02m/%02d/%04y %02H:%02M:%02S")
+;;(setq time-stamp-format "%:u %02m/%02d/%04y %02H:%02M:%02S")
 (setq time-stamp-start "最后更新时间:[     ]+\\\\?")
 (setq time-stamp-end: "\n")
 (setq time-stamp-format: "%:y年%:m月%:d日")
 
 ;; 用来显示当前光标在哪个函数
 (require 'which-func)
-(which-func-mode t)
+(which-func-mode 1)
 
-;; go-to-char 非常感谢 Oliver Scholz 提供这个函数给 我。
-;; 这个函数是一个 vi 的 "f" 命令的替代品。vi的用户知道，vi有 一个特别好的命令 "f"。当你按 "fx", x 是任意一个字符时
-;; 光标 就会移动到下一个 "x" 处。这之后只要按 ";"(分号)，光标就到再 下一个 "x"。
-;; 举个例子说明这个命令的用途。比如我们有这样一行字，光标在 行首。
-;; (setq unread-command-events (list last-input-event)))
-;;                                               ^^^^^
-;;我们希望迅速的到达最后那个 event 处，于是我在 vi 里按 "fe"。结果光标到了 "setq" 的那个 e 上面，这时候我接着按 ";",
-;;不一会儿就到了我们想要的地方。很方便吧？可能起初不觉得，后来 你发现这真的非常好！
+;; go-to-char 非常感谢 Oliver Scholz 提供这个函数给 我。  
+;;这个函数是一个 vi 的 "f" 命令的替代品。vi的用户知道，vi有 一个特别好的命令 "f"。当你按 "fx", x 是任意一个字符时  
+;;光标 就会移动到下一个 "x" 处。这之后只要按 ";"(分号)，光标就到再 下一个 "x"。  
+;;举个例子说明这个命令的用途。比如我们有这样一行字，光标在 行首。  
+;;(setq unread-command-events (list last-input-event)))  
+;;                                               ^^^^^  
+;;我们希望迅速的到达最后那个 event 处，于是我在 vi 里按 "fe"。结果光标到了 "setq" 的那个 e 上面，这时候我接着按 ";",   
+;;不一会儿就到了我们想要的地方。很方便吧？可能起初不觉得，后来 你发现这真的非常好！  
+  
+;;我一直觉得 Emacs 没有这样一个方便的命令，但是 Oliver 给了 我一个完美的答案：  
+;;有了这段代码之后，当你按 C-c a x (x 是任意一个字符) 时，光 标就会到下一个 x 处。再次按 x，光标就到下一个 x。比如 C-c a w w w w ..., C-c a b b b b b b ...  
+;;我觉得这个方式比 vi 的 "f" 要快。  
+(defun wy-go-to-char (n char)  
+  "Move forward to Nth occurence of CHAR.  
+Typing `wy-go-to-char-key' again will move forwad to the next Nth  
+occurence of CHAR."  
+  (interactive "p\ncGo to char: ")  
+  (search-forward (string char) nil nil n)  
+  (while (char-equal (read-char)  
+             char)  
+    (search-forward (string char) nil nil n))  
+  (setq unread-command-events (list last-input-event)))  
+(define-key global-map (kbd "C-c f") 'wy-go-to-char)  
 
-;;我一直觉得 Emacs 没有这样一个方便的命令，但是 Oliver 给了 我一个完美的答案：
-;;有了这段代码之后，当你按 C-c a x (x 是任意一个字符) 时，光 标就会到下一个 x 处。再次按 x，光标就到下一个 x。比如 C-c a w w w w ..., C-c a b b b b b b ...
-;;我觉得这个方式比 vi 的 "f" 要快。
-(defun wy-go-to-char (n char)
-  "Move forward to Nth occurence of CHAR.
-Typing `wy-go-to-char-key' again will move forwad to the next Nth
-occurence of CHAR."
-  (interactive "p\ncGo to char: ")
-  (search-forward (string char) nil nil n)
-  (while (char-equal (read-char)
-             char)
-    (search-forward (string char) nil nil n))
-  (setq unread-command-events (list last-input-event)))
-(define-key global-map (kbd "C-c f") 'wy-go-to-char)
+
+;;web方式显示行号
+;;(require 'wb-line-number)
+;;(wb-line-number-enable)
 
 ;;---------------- Personal Info. ----------------------
 (setq user-full-name "alisonjoe")
@@ -133,12 +139,9 @@ occurence of CHAR."
 (setq file-name-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 (setq slime-net-coding-system 'utf-8-unix)
-;; For my language code setting (UTF-8)
-(setq current-language-environment "UTF-8")
-(setq default-input-method "chinese-py")
 
 ;;设置默认的文档宽度
-(setq-default fill-column 80)
+(setq-default fill-column 100)
 
 ;; 不用 TAB 字符来indent, 这会引起很多奇怪的错误。
 ;; 编辑 Makefile 的时候也不用担心，因为 makefile-mode
@@ -152,7 +155,7 @@ occurence of CHAR."
 (setq-default indent-tabs-mode nil)
 
 ;; 打开emacs打开上次编辑文档
-(desktop-save-mode 1)
+;;(desktop-save-mode 1)
 
 ;;set the default file path
 (setq default-directory "~/WorkSpace")
@@ -229,7 +232,7 @@ occurence of CHAR."
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-;; From active region to multiple cursors:
+;From active region to multiple cursors:
 (global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-c c c") 'mc/edit-lines)
 (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
@@ -237,10 +240,10 @@ occurence of CHAR."
 
 ;; 备份文件
 ;; all backups goto ~/.backups instead in the current directory
-(setq backup-directory-alist (quote (("." . "~/.backups"))))
+;;(setq backup-directory-alist (quote (("." . "~/.backups"))))
 ;; 不产生备份文件
 (setq make-backup-files nil)
-(setq-default make-backup-files nil) ;; 不产生临时文件
+(setq-default make-backup-files nil) ;不产生临时文件
 
 ;; 取消自动保存
 (auto-save-mode 0)
@@ -253,6 +256,20 @@ occurence of CHAR."
   (interactive "P")
   (other-window (- (prefix-numeric-value n))))
 (global-set-key "\C-xp" 'other-window-backward)
+
+
+;; For my language code setting (UTF-8)
+(setq current-language-environment "UTF-8")
+(setq default-input-method "chinese-py")
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; (setq default-buffer-file-coding-system 'utf-8-unix)
+
+
 
 ;; undo-tree
 (require 'init-undo-tree)
@@ -289,16 +306,16 @@ occurence of CHAR."
                     (interactive)
                     (insert ", ")))
 
-;; 将文件模式和文件后缀关联起来。append表示追加
-;; (setq auto-mode-alist
-;;     ( append
-;;       '(("\\.py\\'" . python-mode)
-;;         ("\\.s?html?\\'" . html-helper-mode)
-;;         (" \\.asp\\'" . html-helper-mode)
-;;         ("\\.phtml\\'" . html-helper-mode)
-;;         ("\\.css\\'" . css-mode)
-;;         )
-;;         auto-mode-alist))
+;;将文件模式和文件后缀关联起来。append表示追加  
+(setq auto-mode-alist  
+    ( append
+      '(("\\.py\\'" . python-mode)
+        ("\\.s?html?\\'" . html-helper-mode)
+        (" \\.asp\\'" . html-helper-mode)
+        ("\\.phtml\\'" . html-helper-mode)
+        ("\\.css\\'" . css-mode)
+        )
+        auto-mode-alist))
 
 
 (provide 'init-editing-utils)

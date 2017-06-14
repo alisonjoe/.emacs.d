@@ -4,8 +4,7 @@
 
 (setq projectile-enable-caching t)
 
-(add-to-list 'load-path "E:\WorkSpace")
-
+(add-to-list 'load-path "g:/mysrc/master/")
 (require 'projectile)
 
 
