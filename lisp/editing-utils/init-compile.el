@@ -1,5 +1,4 @@
 ;; supply some shortcut for compilation
-
 ;; the compilation commands alist : (FILETYPE COMMAND-LIST)
 (setq my-compilation-commands
       '((("c" ) . ("clang -Wall" "gcc -Wall"))
@@ -71,10 +70,10 @@
 
 ;; 格式化代码
 (defun indent-buffer ()
-"Indent the whole buffer."
-(interactive)
-(save-excursion
-(indent-region (point-min) (point-max) nil)))
+  "Indent the whole buffer."
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
 
 ;;绑定到F9键
 (global-set-key [f9] 'indent-buffer)

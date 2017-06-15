@@ -1,4 +1,4 @@
-;; Time-stamp: <最后更新时间: 2017-06-14 15:54:54 laihongshu>
+;; Time-stamp: <最后更新时间: 2017-06-15 19:57:53 laihongshu>
 
 (add-to-list 'load-path (expand-file-name "lisp/editing-utils" user-emacs-directory))
 ;; enhanced help mechanism
@@ -34,7 +34,7 @@
  truncate-lines nil
  truncate-partial-width-windows nil
  visible-bell t
- scroll-bar-mode 0
+ scroll-bar-mode nil
  tool-bar-mode nil)
 
 ;; 开启行号
@@ -108,7 +108,7 @@ occurence of CHAR."
   (interactive "p\ncGo to char: ")
   (search-forward (string char) nil nil n)
   (while (char-equal (read-char)
-             char)
+                     char)
     (search-forward (string char) nil nil n))
   (setq unread-command-events (list last-input-event)))
 (define-key global-map (kbd "C-c f") 'wy-go-to-char)
@@ -137,6 +137,19 @@ occurence of CHAR."
 (setq current-language-environment "UTF-8")
 (setq default-input-method "chinese-py")
 
+(when (eq system-type 'windows-nt)
+  (set-language-environment 'Chinese-GB)
+  (set-keyboard-coding-system 'euc-cn)
+  (set-clipboard-coding-system 'euc-cn)
+  (set-terminal-coding-system 'euc-cn)
+  (set-buffer-file-coding-system 'euc-cn)
+  (set-selection-coding-system 'euc-cn)
+  (modify-coding-system-alist 'process "*" 'euc-cn)
+  (setq default-process-coding-system
+        '(euc-cn . euc-cn))
+  (setq-default pathname-coding-system 'euc-cn)
+  )
+
 ;;设置默认的文档宽度
 (setq-default fill-column 80)
 
@@ -154,8 +167,15 @@ occurence of CHAR."
 ;; 打开emacs打开上次编辑文档
 (desktop-save-mode 1)
 
-;;set the default file path
-(setq default-directory "~/WorkSpace")
+;; set the default file path
+;; if 条件成立执行第一条cmd 后面的默认为else
+(if (eq system-type 'windows-nt)
+  (setq default-directory "e:/WorkSpace/")
+  (setq default-directory "~/WorkSpace"))
+
+
+(global-set-key (kbd "C-c C-c c") '(load "~/emacs.d/init.el"))
+
 (setq load-path
       (cons (expand-file-name "~/.emacs.d/lisp") load-path))
 ;; auto-revert

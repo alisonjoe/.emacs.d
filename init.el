@@ -43,17 +43,21 @@
 (require 'init-projectile)  ;; 项目管理
 (require 'init-find-file-in-project)
 (require 'init-fonts)  ;; 设置字体
+(require 'init-powerline)
 (require 'init-google-c-style)
+(require 'init-cpplint)
+
+
+;; (require 'init-flycheck-google-cpplint)
 
 
 ;; (require 'init-exec-path)
 
-(require 'init-ac-source)
+;; (require 'init-ac-source)
 ;; (require 'init-markdown)
 
 ;; (require 'init-yasnippet)
 ;; (require 'init-flycheck)
-;; (require 'init-flycheck-google-cpplint)
 ;; (require 'init-xmlrpc)
 ;; (require 'init-confluence)
 ;; (require 'init-recentf-ext)
@@ -67,7 +71,6 @@
 ;; ;; (require 'init-w3m)
 ;; (require 'init-magit)
 ;; (require 'init-auto-complete-c-headers)
-;; (require 'init-cpplint)
 ;; (require 'init-flymake-cppcheck)
 ;; (require 'init-go-autocomplete)
 ;; (require 'init-erlang)
@@ -75,14 +78,12 @@
 
 
 
-;; (provide 'init)
-;;
+(provide 'init)
+
 ;; '(org-agenda-files
   ;; (quote
    ;; ("~/org/work.org" "~/org/projects.org" "~/org/inbox.org" "~/org/finished.org" "~/org/note.org" "~/org/trash.org")))
-;;
-;;
-;;
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,7 +100,7 @@
  '(flycheck-googlelint-verbose "3")
  '(package-selected-packages
    (quote
-    (find-file-in-project projectile hungry-delete multiple-cursors autumn-light-theme magit ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))
+    (powerline find-file-in-project projectile hungry-delete multiple-cursors autumn-light-theme magit ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
