@@ -1,4 +1,4 @@
-;; Time-stamp: <最后更新时间: 2017-06-15 19:57:53 laihongshu>
+;; Time-stamp: <最后更新时间: 2017-06-16 13:05:06 laihongshu>
 
 (add-to-list 'load-path (expand-file-name "lisp/editing-utils" user-emacs-directory))
 ;; enhanced help mechanism
@@ -34,8 +34,9 @@
  truncate-lines nil
  truncate-partial-width-windows nil
  visible-bell t
- scroll-bar-mode nil
- tool-bar-mode nil)
+ menu-bar-mode 0
+ scroll-bar-mode 0
+ tool-bar-mode 0)
 
 ;; 开启行号
 (global-linum-mode t)
@@ -83,7 +84,7 @@
 ;; (setq time-stamp-format "%:u %02m/%02d/%04y %02H:%02M:%02S")
 (setq time-stamp-start "最后更新时间:[     ]+\\\\?")
 (setq time-stamp-end: "\n")
-(setq time-stamp-format: "%:y年%:m月%:d日")
+(setq time-stamp-format: "%:y-%:m-%:d ")
 
 ;; 用来显示当前光标在哪个函数
 (require 'which-func)
@@ -118,37 +119,18 @@ occurence of CHAR."
 (setq track-eol t) ; 当光标在行尾上下移动的时候，始终保持在行尾
 
 ;; 设置文件编码
-(set-buffer-file-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
+(set-language-environment 'Chinese-GB)
 (set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
 (set-clipboard-coding-system 'utf-8)
-(setq ansi-color-for-comint-mode t)
+(set-terminal-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-selection-coding-system 'utf-8)
 (modify-coding-system-alist 'process "*" 'utf-8)
-(setq-default pathname-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
 (setq default-process-coding-system '(utf-8 . utf-8))
-(setq locale-coding-system 'utf-8)
-(setq file-name-coding-system 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
-(setq slime-net-coding-system 'utf-8-unix)
-;; For my language code setting (UTF-8)
-(setq current-language-environment "UTF-8")
-(setq default-input-method "chinese-py")
-
-(when (eq system-type 'windows-nt)
-  (set-language-environment 'Chinese-GB)
-  (set-keyboard-coding-system 'euc-cn)
-  (set-clipboard-coding-system 'euc-cn)
-  (set-terminal-coding-system 'euc-cn)
-  (set-buffer-file-coding-system 'euc-cn)
-  (set-selection-coding-system 'euc-cn)
-  (modify-coding-system-alist 'process "*" 'euc-cn)
-  (setq default-process-coding-system
-        '(euc-cn . euc-cn))
-  (setq-default pathname-coding-system 'euc-cn)
-  )
+(setq-default pathname-coding-system 'utf-8)
+(set-file-name-coding-system 'utf-8)
+(setq ansi-color-for-comint-mode t)
 
 ;;设置默认的文档宽度
 (setq-default fill-column 80)

@@ -2,7 +2,6 @@
 
 (require-package 'smex)
 
-
 ;; 绑定M-x到smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)

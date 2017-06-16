@@ -1,7 +1,7 @@
-
-(setq cpplint "python ~/.emacs.d/tools/cpplint/cpplint.py")
+;; cpplint
+(setq cpplint (concat "python " (file-truename "~/.emacs.d/tools/cpplint/cpplint.py")))
 ;; (setq flag " --verbose=2 --linelength=80 --output=vs7 --counting=detailed ")
-(setq flag " --verbose=2 --linelength=80 --counting=detailed --filter=-build/include ")
+(setq flag " --verbose=2 --linelength=80 --output=vs7  --counting=detailed --filter=-build/include ")
 
 
 (defun cpplint-current_outfile()

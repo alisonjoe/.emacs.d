@@ -1,2 +1,6 @@
 /snippets/Mr.Lai/cc-mode/oncetws
 init-userinfo.el
+elpa/
+auto-save-list/
+*~
+*#
