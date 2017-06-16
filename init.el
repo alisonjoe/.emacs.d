@@ -46,6 +46,7 @@
 (require 'init-powerline)
 (require 'init-google-c-style)
 (require 'init-cpplint)
+(require 'init-flycheck)
 
 
 ;; (require 'init-flycheck-google-cpplint)
@@ -57,7 +58,6 @@
 ;; (require 'init-markdown)
 
 ;; (require 'init-yasnippet)
-;; (require 'init-flycheck)
 ;; (require 'init-xmlrpc)
 ;; (require 'init-confluence)
 ;; (require 'init-recentf-ext)
