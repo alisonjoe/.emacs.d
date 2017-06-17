@@ -1,8 +1,8 @@
 (require-package 'flymake-cppcheck)
 
-
+(setq cppcheck "cppcheck")
 (custom-set-variables
-   '(flymake-cppcheck-command "path/cppcheck"))
+   '(flymake-cppcheck-command cppcheck))
 
 (add-hook 'c-mode-hook 'flymake-cppcheck-load)
 (add-hook 'c++-mode-hook 'flymake-cppcheck-load)
@@ -16,9 +16,8 @@
 (custom-set-variables
    '(flymake-cppcheck-location 'tempdir))
 
-(setq cppcheck "path/cppcheck")
 ;; (setq cppcheck_flag " --std=c99 --std=posix file.c  -j4 --enable=all ")
-(setq cppcheck_flag " --std=c99 --std=posix file.c --enable=all ")
+(setq cppcheck_flag " --enable=all ")
 
 (defun cppcheck-current()
   (interactive)
@@ -35,7 +34,7 @@
 (defun cppcheck-dire()
   (interactive)
   (setq src_path (file-name-directory buffer-file-name))
-  (compile (format "%s %s %s*.* "
+  (compile (format "%s %s %s*.cpp "
                    cppcheck
                    cppcheck_flag
                    src_path )) > log

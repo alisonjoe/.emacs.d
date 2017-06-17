@@ -1,4 +1,4 @@
-;; Time-stamp: <最后更新时间: 2017-06-16 13:05:06 laihongshu>
+;; Time-stamp: <最后更新时间: 2017-06-17 15:36:54 laihongshu>
 
 (add-to-list 'load-path (expand-file-name "lisp/editing-utils" user-emacs-directory))
 ;; enhanced help mechanism
@@ -33,10 +33,10 @@
  tooltip-delay 1.5
  truncate-lines nil
  truncate-partial-width-windows nil
- visible-bell t
- menu-bar-mode 0
- scroll-bar-mode 0
- tool-bar-mode 0)
+ visible-bell t)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
 
 ;; 开启行号
 (global-linum-mode t)

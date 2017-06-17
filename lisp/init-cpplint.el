@@ -38,8 +38,6 @@
                      (file-name-sans-extension file)))))
   )
 
-
-
 ;; 需要打开文件才能调用，不然获取不到path
 (defun cpplint-dire()
   (interactive)

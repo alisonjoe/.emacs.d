@@ -51,13 +51,14 @@
 (require 'init-ctable)
 (require 'init-magit)
 (require 'init-yasnippet)
+(require 'init-fill-column)  ;; 显示右边的换行提示
+(require 'init-dynamic)  ;; 加载动态库
+(require 'init-mew)  ;; 邮件
+(require 'init-ac-source)
+(require 'init-auto-complete-c-headers)  ;; 头文件提示
+(require 'init-flymake-cppcheck)  ;; cppcheck
 
 
-;; (require 'init-flycheck-google-cpplint)
-
-
-
-;; (require 'init-ac-source)
 ;; (require 'init-markdown)
 
 ;; (require 'init-xmlrpc)
@@ -65,13 +66,8 @@
 ;; (require 'init-recentf-ext)
 ;; (require 'init-imenu)
 ;; (require 'init-tramp)
-;; (require 'init-mew)
 ;; ;; (require 'init-ctags)
-;; (require 'init-fill-column)
 ;; ;; (require 'init-ycmd)  ;; 需要安装ycmd
-;; ;; (require 'init-w3m)
-;; (require 'init-auto-complete-c-headers)
-;; (require 'init-flymake-cppcheck)
 ;; (require 'init-go-autocomplete)
 ;; (require 'init-erlang)
 ;; ----------------------------------------------------------------------
@@ -80,9 +76,6 @@
 
 (provide 'init)
 
-;; '(org-agenda-files
-  ;; (quote
-   ;; ("~/org/work.org" "~/org/projects.org" "~/org/inbox.org" "~/org/finished.org" "~/org/note.org" "~/org/trash.org")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -98,6 +91,9 @@
  '(flycheck-googlelint-linelength "120")
  '(flycheck-googlelint-root "project/src")
  '(flycheck-googlelint-verbose "3")
+ '(flymake-cppcheck-command cppcheck)
+ '(flymake-cppcheck-enable "warning,performance,information,style")
+ '(flymake-cppcheck-location (quote tempdir))
  '(package-selected-packages
    (quote
     (smex powerline find-file-in-project projectile hungry-delete multiple-cursors autumn-light-theme magit ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))

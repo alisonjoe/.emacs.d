@@ -7,7 +7,7 @@
 
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets/Mr.Lai/"                 ;; personal snippets
-        "~/.emacs.d/elpa/yasnippet-20170310.1724/snippets"            ;; defualt 需要对应安装完的版本号
+        ;;"~/.emacs.d/elpa/yasnippet-20170310.1724/snippets"            ;; defualt 需要对应安装完的版本号
         ;;"~/.emacs.d/elpa/yasnippet"            ;; defualt 需要对应安装完的版本号
         ;;"/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
         ;;"/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
