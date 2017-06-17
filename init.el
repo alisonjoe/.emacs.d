@@ -47,29 +47,29 @@
 (require 'init-google-c-style)
 (require 'init-cpplint)
 (require 'init-flycheck)
+(require 'init-exec-path)  ;; 设置shell 路径
+(require 'init-ctable)
+(require 'init-magit)
+(require 'init-yasnippet)
 
 
 ;; (require 'init-flycheck-google-cpplint)
 
 
-;; (require 'init-exec-path)
 
 ;; (require 'init-ac-source)
 ;; (require 'init-markdown)
 
-;; (require 'init-yasnippet)
 ;; (require 'init-xmlrpc)
 ;; (require 'init-confluence)
 ;; (require 'init-recentf-ext)
 ;; (require 'init-imenu)
 ;; (require 'init-tramp)
 ;; (require 'init-mew)
-;; (require 'init-ctable)
 ;; ;; (require 'init-ctags)
 ;; (require 'init-fill-column)
 ;; ;; (require 'init-ycmd)  ;; 需要安装ycmd
 ;; ;; (require 'init-w3m)
-;; (require 'init-magit)
 ;; (require 'init-auto-complete-c-headers)
 ;; (require 'init-flymake-cppcheck)
 ;; (require 'init-go-autocomplete)
