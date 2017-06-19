@@ -30,6 +30,7 @@
         ))
 
 
+
 ;;; To-do settings
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
@@ -39,6 +40,7 @@
 (setq org-todo-keyword-faces
       (quote (("NEXT" :inherit warning)
               ("PROJECT" :inherit font-lock-string-face))))
+
 
 
 ;; Agenda views
