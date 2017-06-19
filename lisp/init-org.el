@@ -23,13 +23,11 @@
 
 
 (setq org-capture-templates
-      `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
+      `(("t" "todo" entry (file "~/.emacs.d/org_file/org-file/gtd/projects.org")  ; "" => org-default-notes-file
          "* NEXT %?\n%U\n" :clock-resume t)
-        ("n" "note" entry (file "")
+        ("n" "note" entry (file "~/.emacs.d/org_file/org-file/gtd/note.org")
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
         ))
-
-
 
 ;;; To-do settings
 (setq org-todo-keywords
