@@ -38,6 +38,7 @@
 (require 'init-dired)  ;; dired模式
 (require 'init-agenda)  ;; load org-agenda-file
 (require 'init-org)  ;; org-mode
+(require 'init-pomodoro)  ;; org-pomodoro
 (require 'init-window-numbering)  ;; 窗口跳转
 (require 'init-company)  ;; 自动补全，待整理
 (require 'init-sql)  ;; sql模式
