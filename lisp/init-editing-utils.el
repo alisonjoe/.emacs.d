@@ -35,7 +35,10 @@
  truncate-partial-width-windows nil
  visible-bell t)
 (menu-bar-mode 0)
-(scroll-bar-mode 0)
+(when (eq system-type 'windows-nt)
+  (scroll-bar-mode 0))
+(when (eq system-type 'drawer)
+  (scroll-bar-mode 0))
 (tool-bar-mode 0)
 
 ;; 开启行号

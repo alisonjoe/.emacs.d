@@ -21,6 +21,7 @@
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
+
 (setq org-capture-templates
       `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
          "* NEXT %?\n%U\n" :clock-resume t)
@@ -39,14 +40,6 @@
       (quote (("NEXT" :inherit warning)
               ("PROJECT" :inherit font-lock-string-face))))
 
-;; file
-(setq org-agenda-files (list "~/org/work.org"
-                             "~/org/projects.org"
-                             "~/org/inbox.org"
-                             "~/org/finished.org"
-                             "~/org/note.org"
-                             "~/org/trash.org"
-                                                ))
 
 ;; Agenda views
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))

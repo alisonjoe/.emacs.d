@@ -36,6 +36,7 @@
 (require 'init-swiper)  ;; 正则表达式查找
 (require 'init-helm)   ;; 命令补全
 (require 'init-dired)  ;; dired模式
+(require 'init-agenda)
 (require 'init-org)  ;; org-mode
 (require 'init-window-numbering)  ;; 窗口跳转
 (require 'init-company)  ;; 自动补全，待整理
@@ -57,6 +58,10 @@
 (require 'init-ac-source)
 (require 'init-auto-complete-c-headers)  ;; 头文件提示
 (require 'init-flymake-cppcheck)  ;; cppcheck
+(when (eq system-type 'windows-nt)
+	(require 'init-nyan))
+(when (eq system-type 'darwin)
+	(require 'init-nyan))
 
 
 ;; (require 'init-markdown)
@@ -94,6 +99,7 @@
  '(flymake-cppcheck-command cppcheck)
  '(flymake-cppcheck-enable "warning,performance,information,style")
  '(flymake-cppcheck-location (quote tempdir))
+ '(org-agenda-files nil)
  '(package-selected-packages
    (quote
     (smex powerline find-file-in-project projectile hungry-delete multiple-cursors autumn-light-theme magit ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))
