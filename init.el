@@ -45,7 +45,7 @@
 (require 'init-fonts)  ;; 设置字体
 (require 'init-powerline)
 (require 'init-google-c-style)
-(require 'init-cpplint)
+(require 'init-cpplint)  ;; google cpplint
 (require 'init-flycheck)
 (require 'init-exec-path)  ;; 设置shell 路径
 (require 'init-ctable)
