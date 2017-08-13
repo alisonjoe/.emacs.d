@@ -63,10 +63,9 @@
   (require 'init-nyan
            'init-org-download))
 (when (eq system-type 'darwin)
-  (require 'init-nyan))
+  (require 'init-nyan
+           'init-org-download))
 
-
-(require 'init-org-download)
 
 
 ;; (require 'init-markdown)
