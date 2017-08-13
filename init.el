@@ -60,9 +60,13 @@
 (require 'init-auto-complete-c-headers)  ;; 头文件提示
 (require 'init-flymake-cppcheck)  ;; cppcheck
 (when (eq system-type 'windows-nt)
-	(require 'init-nyan))
+  (require 'init-nyan
+           'init-org-download))
 (when (eq system-type 'darwin)
-	(require 'init-nyan))
+  (require 'init-nyan))
+
+
+(require 'init-org-download)
 
 
 ;; (require 'init-markdown)

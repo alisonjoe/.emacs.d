@@ -9,5 +9,4 @@
   `(eval-after-load ,feature
      '(progn ,@body)))
 
-
 (provide 'init-utils)
