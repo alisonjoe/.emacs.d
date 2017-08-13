@@ -1,6 +1,8 @@
 (require-package 'flymake-cppcheck)
 
 (setq cppcheck "cppcheck")
+(when (eq system-type 'gnu/linux)
+  (setq cppcheck "~/tools/cppcheck-1.69/cppcheck"))
 (custom-set-variables
    '(flymake-cppcheck-command cppcheck))
 
