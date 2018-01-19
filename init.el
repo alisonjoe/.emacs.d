@@ -59,12 +59,18 @@
 (require 'init-ac-source)
 (require 'init-auto-complete-c-headers)  ;; 头文件提示
 (require 'init-flymake-cppcheck)  ;; cppcheck
+(require 'init-org-edit-latex)  ;; cppcheck
+;;; (require 'init-org2pdf)  ;; cppcheck
 (when (eq system-type 'windows-nt)
   		(require 'init-nyan)
         (require 'init-org-download))
 (when (eq system-type 'darwin)
 		(require 'init-nyan)
         (require 'init-org-download))
+(require 'init-ggtags)
+(require 'init-popup)
+(require 'init-unicad)  ;; 自动解析编码
+
 
 
 
@@ -91,10 +97,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-file-name-transforms (quote ((".*" "~/.autosaves/" t))))
+ '(backup-directory-alist (quote ((".*" . "~/.backups/"))))
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("55d31108a7dc4a268a1432cd60a7558824223684afecefa6fae327212c40f8d3" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82e02b87e45ef7bee5d900ff4ebc12956ecdc9d797d6905f62758a7f2198305c" "db08eb1e43f351490cfffd720db90600dd92d5cdf311f74350532ba71ae65c48" "a1289424bbc0e9f9877aa2c9a03c7dfd2835ea51d8781a0bf9e2415101f70a7e" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
+    ("67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" "55d31108a7dc4a268a1432cd60a7558824223684afecefa6fae327212c40f8d3" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82e02b87e45ef7bee5d900ff4ebc12956ecdc9d797d6905f62758a7f2198305c" "db08eb1e43f351490cfffd720db90600dd92d5cdf311f74350532ba71ae65c48" "a1289424bbc0e9f9877aa2c9a03c7dfd2835ea51d8781a0bf9e2415101f70a7e" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
  '(flycheck-c/c++-googlelint-executable "~/.emacs.d/tools/cpplint/cpplint.py")
  '(flycheck-googlelint-filter "-whitespace,+whitespace/braces")
  '(flycheck-googlelint-linelength "120")

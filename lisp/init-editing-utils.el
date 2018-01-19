@@ -1,4 +1,4 @@
-;; Time-stamp: <最后更新时间: 2017-06-17 15:36:54 laihongshu>
+;; Time-stamp: <最后更新时间: 2017-09-07 10:26:07 laihongshu>
 
 (add-to-list 'load-path (expand-file-name "lisp/editing-utils" user-emacs-directory))
 ;; enhanced help mechanism
@@ -240,15 +240,16 @@ occurence of CHAR."
 (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
 
-;; 备份文件
-;; all backups goto ~/.backups instead in the current directory
-(setq backup-directory-alist (quote (("." . "~/.backups"))))
-;; 不产生备份文件
-(setq make-backup-files nil)
-(setq-default make-backup-files nil) ;; 不产生临时文件
 
-;; 取消自动保存
-(auto-save-mode 0)
+;; 备份文件
+;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
+; create the autosave dir if necessary, since emacs won't.
+(make-directory "~/.autosaves/" t)
+(make-directory "~/.backups/" t)
+; put files
+(custom-set-variables
+  '(auto-save-file-name-transforms '((".*" "~/.autosaves/" t)))
+  '(backup-directory-alist '((".*" . "~/.backups/"))))
 
 ;; switch-window
 (require 'init-switch-window)
