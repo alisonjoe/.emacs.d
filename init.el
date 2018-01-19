@@ -62,15 +62,15 @@
 (require 'init-org-edit-latex)  ;; cppcheck
 ;;; (require 'init-org2pdf)  ;; cppcheck
 (when (eq system-type 'windows-nt)
-  		(require 'init-nyan)
-        (require 'init-org-download))
+  (require 'init-nyan)
+  (require 'init-org-download))
 (when (eq system-type 'darwin)
 		(require 'init-nyan)
         (require 'init-org-download))
+
 (require 'init-ggtags)
 (require 'init-popup)
 (require 'init-unicad)  ;; 自动解析编码
-
 
 
 
