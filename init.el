@@ -5,6 +5,9 @@
 ;; 便的把具体的初始化工作按类别分在其余文件中。
 
 ;; init.el
+;; -*- lexical-binding: t -*-
+
+(setq debug-on-error t)
 
 ;;把目录lisp/添加到搜索路径中
 
@@ -14,9 +17,20 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(add-to-list
- 'load-path
- (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'init-benchmarking)  ;; 测量启动时间
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+;;----------------------------------------------------------------------------
+;; Adjust garbage collection thresholds during startup, and thereafter
+;;----------------------------------------------------------------------------
+;; (let ((normal-gc-cons-threshold (* 20 1024 1024))
+;;       ((defconst *is-a-mac* (eq system-type 'darwin))init-gc-cons-threshold (* 128 1024 1024)))
+;;   (setq(defconst *is-a-mac* (eq system-type 'darwin)) gc-cons-threshold init-gc-cons-threshold)
+;;   (add-hook 'after-init-hook
+;;          (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+;;----------------------------------------------------------------------------
+;;----------------------------------------------------------------------------
 
 ;; 判断系统进行不同设置
 ;; (when (eq system-type 'windows-nt)
@@ -28,49 +42,54 @@
 ;; 为加载初始化文件提供的一些自定义函数和宏
 (require 'init-utils)  ;; el 加载顺序
 ;; 加载elpa，主要定义了require-package函数
-(require 'init-elpa)  ;; 软件仓库
-(require 'init-session)  ;; 配合desktop使用，保存关闭前状态
-(require 'init-themes)  ;; 配色
-(require 'init-editing-utils)  ;; 个人习惯配置
-(require 'init-hungry-delete)  ;; 删除多余空格
-(require 'init-swiper)  ;; 正则表达式查找
-(require 'init-helm)   ;; 命令补全
-(require 'init-dired)  ;; dired模式
-(require 'init-agenda)  ;; load org-agenda-file
-(require 'init-org)  ;; org-mode
-(require 'init-pomodoro)  ;; org-pomodoro
-(require 'init-window-numbering)  ;; 窗口跳转
-(require 'init-company)  ;; 自动补全，待整理
-(require 'init-sql)  ;; sql模式
-(require 'init-projectile)  ;; 项目管理
-(require 'init-find-file-in-project)
-(require 'init-fonts)  ;; 设置字体
-(require 'init-powerline)
-(require 'init-google-c-style)
-(require 'init-cpplint)  ;; google cpplint
-(require 'init-flycheck)
-(require 'init-exec-path)  ;; 设置shell 路径
-(require 'init-ctable)
-(require 'init-magit)
-(require 'init-yasnippet)
-(require 'init-fill-column)  ;; 显示右边的换行提示
-(require 'init-dynamic)  ;; 加载动态库
-(require 'init-mew)  ;; 邮件
-(require 'init-ac-source)
-(require 'init-auto-complete-c-headers)  ;; 头文件提示
-(require 'init-flymake-cppcheck)  ;; cppcheck
-(require 'init-org-edit-latex)  ;; cppcheck
-;;; (require 'init-org2pdf)  ;; cppcheck
-(when (eq system-type 'windows-nt)
-  (require 'init-nyan)
-  (require 'init-org-download))
-(when (eq system-type 'darwin)
-		(require 'init-nyan)
-        (require 'init-org-download))
+(require 'init-elpa)
+(require 'init-editing-utils)
+(require 'init-multiple-cursors)
+(require 'init-themes)
+(require 'init-window-numbering)
+(require 'init-helm)
 
-(require 'init-ggtags)
-(require 'init-popup)
-(require 'init-unicad)  ;; 自动解析编码
+;; ; (require 'init-session)  ;; 配合desktop使用，保存关闭前状态
+
+;; (require 'init-hungry-delete)  ;; 删除多余空格
+;; (require 'init-swiper)  ;; 正则表达式查找
+
+;; (require 'init-dired)  ;; dired模式
+;; (require 'init-agenda)  ;; load org-agenda-file
+;; (require 'init-org)  ;; org-mode
+;; (require 'init-pomodoro)  ;; org-pomodoro
+
+;; (require 'init-company)  ;; 自动补全，待整理
+;; (require 'init-sql)  ;; sql模式
+;; (require 'init-projectile)  ;; 项目管理
+;; (require 'init-find-file-in-project)
+;; (require 'init-fonts)  ;; 设置字体
+;; (require 'init-powerline)
+;; (require 'init-google-c-style)
+;; (require 'init-cpplint)  ;; google cpplint
+;; (require 'init-flycheck)
+;; (require 'init-exec-path)  ;; 设置shell 路径
+;; (require 'init-ctable)
+;; (require 'init-magit)
+;; (require 'init-yasnippet)
+;; (require 'init-fill-column)  ;; 显示右边的换行提示
+;; (require 'init-dynamic)  ;; 加载动态库
+;; (require 'init-mew)  ;; 邮件
+;; (require 'init-ac-source)
+;; (require 'init-auto-complete-c-headers)  ;; 头文件提示
+;; (require 'init-flymake-cppcheck)  ;; cppcheck
+;; (require 'init-org-edit-latex)  ;; cppcheck
+;; ;;; (require 'init-org2pdf)  ;; cppcheck
+;; (when (eq system-type 'windows-nt)
+;;   (require 'init-nyan)
+;;   (require 'init-org-download))
+;; (when (eq system-type 'darwin)
+;; 		(require 'init-nyan)
+;;         (require 'init-org-download))
+
+;; (require 'init-ggtags)
+;; (require 'init-popup)
+;; (require 'init-unicad)  ;; 自动解析编码
 
 
 
@@ -90,8 +109,6 @@
 
 
 (provide 'init)
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,29 +116,15 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-file-name-transforms (quote ((".*" "~/.autosaves/" t))))
  '(backup-directory-alist (quote ((".*" . "~/.backups/"))))
- '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
+ '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
-    ("67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" "55d31108a7dc4a268a1432cd60a7558824223684afecefa6fae327212c40f8d3" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82e02b87e45ef7bee5d900ff4ebc12956ecdc9d797d6905f62758a7f2198305c" "db08eb1e43f351490cfffd720db90600dd92d5cdf311f74350532ba71ae65c48" "a1289424bbc0e9f9877aa2c9a03c7dfd2835ea51d8781a0bf9e2415101f70a7e" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
- '(flycheck-c/c++-googlelint-executable "~/.emacs.d/tools/cpplint/cpplint.py")
- '(flycheck-googlelint-filter "-whitespace,+whitespace/braces")
- '(flycheck-googlelint-linelength "120")
- '(flycheck-googlelint-root "project/src")
- '(flycheck-googlelint-verbose "3")
- '(flymake-cppcheck-command cppcheck)
- '(flymake-cppcheck-enable "warning,performance,information,style")
- '(flymake-cppcheck-location (quote tempdir))
- '(org-pomodoro-format "•%s")
- '(org-pomodoro-short-break-format "•%s")
- '(package-selected-packages
-   (quote
-    (smex powerline find-file-in-project projectile hungry-delete multiple-cursors autumn-light-theme magit ssh ssh-agency ido-gnus org default-text-scale yasnippet atom-dark-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-theme tabbar sql-indent markdown-mode exec-path-from-shell dired+ pos-tip fuzzy auto-complete-clang ac-math flex-isearch undo-tree switch-window page-break-lines whole-line-or-region expand-region hlinum autopair diminish help-fns+)))
- '(session-use-package t nil (session)))
+    ("551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" "67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" "55d31108a7dc4a268a1432cd60a7558824223684afecefa6fae327212c40f8d3" default)))
+ '(display-time-mode t)
+ '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
-(put 'scroll-left 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
+ '(default ((t (:family #("微软雅黑" 0 4 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
