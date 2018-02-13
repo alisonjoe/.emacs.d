@@ -4,7 +4,9 @@
 
 (setq projectile-enable-caching t)
 
-(add-to-list 'load-path "E:\WorkSpace")
+(if (eq system-type 'windows-nt)
+    (add-to-list 'load-path "E:\WorkSpace")
+  (add-to-list 'load-path "~/WorkSpace"))
 
 (require 'projectile)
 

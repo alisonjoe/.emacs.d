@@ -20,11 +20,11 @@
 
 ;;; Capturing
 
-(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c t") 'org-capture)
 
 
 (setq org-capture-templates
-      `(("t" "todo" entry (file "~/.emacs.d/org_file/org-file/gtd/projects.org")  ; "" => org-default-notes-file
+      `(("t" "todo" entry (file "~/.emacs.d/org_file/org-file/gtd/projects.org")
          "* NEXT %?\n%U\n" :clock-resume t)
         ("n" "note" entry (file "~/.emacs.d/org_file/org-file/gtd/note.org")
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)

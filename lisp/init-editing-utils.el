@@ -1,45 +1,6 @@
-;; Time-stamp: <最后更新时间: 2017-09-07 10:26:07 laihongshu>
-
+;; Time-stamp: <最后更新时间: 2018-02-12 18:13:41 laihongshu>
 (add-to-list 'load-path (expand-file-name "lisp/editing-utils" user-emacs-directory))
-;; enhanced help mechanism
-(require-package 'help-fns+)
-(require 'help-fns+)
-
-;; dimish minor mode name to save mode line space
-(require-package 'diminish)
-
 ;; some default value
-(setq-default
- blink-cursor-delay 0.5
- blink-cursor-interval 0.4
- buffers-menu-max-size 20
- case-fold-search t
- column-number-mode t
- line-number-mode t
- compilation-scroll-output t
- delete-selection-mode t
- grep-scroll-output t
- indent-tabs-mode nil
- line-spacing 0.2
- make-backup-files nil
- mouse-yank-at-point t
- save-interprogram-paste-before-kill t
- scroll-preserve-screen-position 'always
- scroll-step 1
- scroll-margin 3
- scroll-conservatively 10000
- set-mark-command-repeat-pop t
- show-trailing-whitespace t
- tooltip-delay 1.5
- truncate-lines nil
- truncate-partial-width-windows nil
- visible-bell t)
-(menu-bar-mode 0)
-(when (eq system-type 'windows-nt)
-  (scroll-bar-mode 0))
-(when (eq system-type 'drawer)
-  (scroll-bar-mode 0))
-(tool-bar-mode 0)
 
 ;; 开启行号
 (global-linum-mode t)
@@ -65,6 +26,7 @@
 
 ;; 所有模式中都自动填充
 (setq-default auto-fill-function 'do-auto-fill)
+
 ;; ----------------- 显示日期时间--------------------
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
@@ -89,22 +51,11 @@
 (setq time-stamp-end: "\n")
 (setq time-stamp-format: "%:y-%:m-%:d ")
 
-;; 用来显示当前光标在哪个函数
-(require 'which-func)
-(which-func-mode t)
+;; Highlight function
+;; (require 'which-func)
+;; (which-func-mode t)
 
-;; go-to-char 非常感谢 Oliver Scholz 提供这个函数给 我。
-;; 这个函数是一个 vi 的 "f" 命令的替代品。vi的用户知道，vi有 一个特别好的命令 "f"。当你按 "fx", x 是任意一个字符时
-;; 光标 就会移动到下一个 "x" 处。这之后只要按 ";"(分号)，光标就到再 下一个 "x"。
-;; 举个例子说明这个命令的用途。比如我们有这样一行字，光标在 行首。
-;; (setq unread-command-events (list last-input-event)))
-;;                                               ^^^^^
-;;我们希望迅速的到达最后那个 event 处，于是我在 vi 里按 "fe"。结果光标到了 "setq" 的那个 e 上面，这时候我接着按 ";",
-;;不一会儿就到了我们想要的地方。很方便吧？可能起初不觉得，后来 你发现这真的非常好！
-
-;;我一直觉得 Emacs 没有这样一个方便的命令，但是 Oliver 给了 我一个完美的答案：
-;;有了这段代码之后，当你按 C-c a x (x 是任意一个字符) 时，光 标就会到下一个 x 处。再次按 x，光标就到下一个 x。比如 C-c a w w w w ..., C-c a b b b b b b ...
-;;我觉得这个方式比 vi 的 "f" 要快。
+;; go-to-char like vi f char
 (defun wy-go-to-char (n char)
   "Move forward to Nth occurence of CHAR.
 Typing `wy-go-to-char-key' again will move forwad to the next Nth
@@ -115,27 +66,13 @@ occurence of CHAR."
                      char)
     (search-forward (string char) nil nil n))
   (setq unread-command-events (list last-input-event)))
-(define-key global-map (kbd "C-c f") 'wy-go-to-char)
+(define-key global-map (kbd "C-c f") 'wy-go-to-char)  ;; chang C-c a to bind C-c f
 
 ;;---------------- Personal Info. ----------------------
 (setq user-full-name "alisonjoe")
 (setq track-eol t) ; 当光标在行尾上下移动的时候，始终保持在行尾
 
-;; 设置文件编码
-(set-language-environment 'Chinese-GB)
-(set-keyboard-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-selection-coding-system 'utf-8)
-(modify-coding-system-alist 'process "*" 'utf-8)
-(setq default-process-coding-system '(utf-8 . utf-8))
-(setq-default pathname-coding-system 'utf-8)
-(set-file-name-coding-system 'utf-8)
-(setq ansi-color-for-comint-mode t)
-
-;;设置默认的文档宽度
+;; set fill column
 (setq-default fill-column 80)
 
 ;; 不用 TAB 字符来indent, 这会引起很多奇怪的错误。
@@ -149,24 +86,21 @@ occurence of CHAR."
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
 
-;; 打开emacs打开上次编辑文档
-(desktop-save-mode 1)
-
 ;; set the default file path
-;; if 条件成立执行第一条cmd 后面的默认为else
+;; if succ use first,  else use second.
 (if (eq system-type 'windows-nt)
   (setq default-directory "e:/WorkSpace/")
   (setq default-directory "~/WorkSpace"))
 
-
-(global-set-key (kbd "C-c C-c c") '(load "~/emacs.d/init.el"))
+(global-set-key (kbd "C-c C-c c") '(lambda() (interactive) (load-file "~/.emacs.d/init.el")))
 
 (setq load-path
       (cons (expand-file-name "~/.emacs.d/lisp") load-path))
+
 ;; auto-revert
-(global-auto-revert-mode)
-(setq global-auto-revert-non-file-buffers t
-      auto-revert-verbose t)
+;; (global-auto-revert-mode)
+;; (setq global-auto-revert-non-file-buffers t
+;;       auto-revert-verbose t)
 
 ;; enable auto-pairing
 (require 'init-autopair)
@@ -227,19 +161,6 @@ occurence of CHAR."
 ;; enable subword-mode
 ;; (global-subword-mode t)
 
-;; multiple-cursors-mode
-(require-package 'multiple-cursors)
-;; multiple-cursors
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-+") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-;; From active region to multiple cursors:
-(global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
-(global-set-key (kbd "C-c c c") 'mc/edit-lines)
-(global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
-
 
 ;; 备份文件
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
@@ -294,17 +215,6 @@ occurence of CHAR."
                 #'(lambda ()
                     (interactive)
                     (insert ", ")))
-
-;; 将文件模式和文件后缀关联起来。append表示追加
-;; (setq auto-mode-alist
-;;     ( append
-;;       '(("\\.py\\'" . python-mode)
-;;         ("\\.s?html?\\'" . html-helper-mode)
-;;         (" \\.asp\\'" . html-helper-mode)
-;;         ("\\.phtml\\'" . html-helper-mode)
-;;         ("\\.css\\'" . css-mode)
-;;         )
-;;         auto-mode-alist))
 
 
 (provide 'init-editing-utils)
